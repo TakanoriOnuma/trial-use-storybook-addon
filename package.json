@@ -21,7 +21,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "7.6.10",
-    "trial-storybook-addon": "github:TakanoriOnuma/trial-storybook-addon#dist",
+    "trial-storybook-addon": "github:TakanoriOnuma/trial-storybook-addon#dist-v7.6.10",
     "vite": "^4.5.2"
   },
   "volta": {
