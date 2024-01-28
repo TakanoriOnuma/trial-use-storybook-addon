@@ -1,18 +1,20 @@
 import { Meta, StoryObj } from "@storybook/react";
 
 import { TestMessage } from "./TestMessage";
-// import { PARAM_KEY } from "../src/constants";
-// import { useMyAddonState, MyAddonState } from "../src";
+import {
+  useMyAddonState,
+  createAssignableParametersForMyAddon,
+} from "trial-storybook-addon";
 
 type Story = StoryObj<typeof TestMessage>;
 
 const Template: Story["render"] = (args) => {
-  // const myAddonState = useMyAddonState();
+  const myAddonState = useMyAddonState();
 
   return (
     <div>
       <TestMessage {...args} />
-      {/* <div>myAddonState: {JSON.stringify(myAddonState)}</div> */}
+      <div>myAddonState: {JSON.stringify(myAddonState)}</div>
     </div>
   );
 };
@@ -37,21 +39,21 @@ export const Text: Story = {
 };
 
 export const DefaultWithParams: Story = {
-  // parameters: {
-  //   [PARAM_KEY]: {
-  //     num: 10,
-  //   } satisfies MyAddonState,
-  // },
+  parameters: {
+    ...createAssignableParametersForMyAddon({
+      num: 10,
+    }),
+  },
 };
 
 export const TextWithParams: Story = {
   args: {
     message: "こんにちは！",
   },
-  // parameters: {
-  //   [PARAM_KEY]: {
-  //     flag: true,
-  //     num: 10,
-  //   } satisfies MyAddonState,
-  // },
+  parameters: {
+    ...createAssignableParametersForMyAddon({
+      flag: true,
+      num: 10,
+    }),
+  },
 };
